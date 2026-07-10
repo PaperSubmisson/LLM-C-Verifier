@@ -43,14 +43,6 @@ Execute the main script from the root directory:
 ```bash
 python main.py
 ```
-# Notes on High Concurrency
-The framework uses concurrent.futures.ThreadPoolExecutor to process multiple verification tasks simultaneously. When MAX_WORKERS is set to a high value (e.g., 150), the script spawns numerous parallel subprocesses for Boogie and GCC, which consume a large number of file descriptors.
-
-If you encounter Too many open files errors (OS Error 24) on Linux or macOS, you need to increase the system's file descriptor limit before running the script. Use the following command:
-```bash
-ulimit -n 10240
-python main.py
-```
 # Output
 The console will display a brief progress status for each task.
 
